@@ -80,3 +80,98 @@ let incr = 10,
 
 	console.log(2 + 2 * 2 === 8);
 
+
+	//методы перебора массивов
+	{
+	let numbers = [1, 10, 15, 20, -4, 8, 14];
+
+	//for 
+		for (let i = 0; i < numbers.length; i++) {
+			console.log(numbers[i]);
+		}
+	}
+	//forEach
+	{
+		let numbers = [1, 10, 15, 20, -4, 8, 14];
+	
+		numbers.forEach(function(item, i){
+			console.log(item);
+
+		});
+	}
+	//filter
+	{
+		let numbers = [1, 10, 15, 20, -4, 8, 14];
+
+		let neg = numbers.filter(function(item){
+			return item < 0;
+		});
+
+		console.log(neg);
+
+	}
+
+	//map
+	{
+		let data = ['1', '10', '15', '20', '-4', '8', '14'];
+
+		let numbers = data.map(function(item){
+			return +(item);
+		});
+
+		console.log(data);
+		console.log(numbers);
+	}
+
+	//every
+{
+	let numbers = [1, 10, 15, -20, 4, 8, 14];
+
+	let allPos = numbers.every(function(item){
+		return item >= 0;
+	});
+
+	console.log(allPos);
+}
+
+	//some
+	{
+		let numbers = [1, 10, 15, -20, 4, 8, 14];
+	
+		let allPos = numbers.some(function(item){
+			return item < 0;
+		});
+	
+		console.log(allPos);
+	}
+
+	//reduce или reduceRight справа налево
+	{
+		let numbers = [1, 10, 15, -20, 4, 8, 14];
+
+		let sum = numbers.reduce(function(total, item){
+			return total + item;
+		},0);
+
+		console.log(sum);
+	}
+
+	//reduce может преобразовать двумерный массив в одномерный 
+
+	{
+		let numbers = [
+			[1, 10], 
+			[15, -20], 
+			[4, 8], 
+			[14,6]
+		];
+
+		let arr = numbers.reduce(function(total, item){
+			return total.concat(item);
+		},[]);
+
+		console.log(arr);
+	}
+
+
+

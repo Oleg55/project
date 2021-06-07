@@ -174,4 +174,59 @@ let incr = 10,
 	}
 
 
+//функции
+//замыкание функции это сама функция с ее переменными которые ей доступны
+let num = 20;
+function showFirstMessage(text) {
+	console.log(text);
+	let num = 10;
+}
 
+showFirstMessage("hello123");
+console.log(num);
+
+function calc(a,b) {
+	return (a + b);
+}
+
+console.log(calc(6,3));
+console.log(calc(16,3));
+console.log(calc(6,23));
+
+function ret() {
+	let num = 50;
+	
+	//
+
+	return num;
+}
+
+const anotherNum = ret();
+console.log(anotherNum);
+
+// FUNCTION DECLARATION пример: функцию можно вызвать до ее самой 
+//(;) в конце можно не ставить
+	console.log(calc(6,23));
+	function calc(a,b) {
+		return (a + b);
+	}
+// FUNCTION EXPRESSION пример: вызвать можно только после ее обьявления
+//(;) в конце нужно ставить
+	const logger = function() {
+		console.log("Hello EXPRESSION");
+	};
+
+	logger();
+
+
+//СТРЕЛОЧНЫЕ ФУНКЦИИ
+//если в одну строчку то скобки {} можно не ставить
+//не имеет своего контекста (this)
+const calc1 = (a, b) =>  a + b;
+
+//с одним аргументом можно вот так
+const calc2 = a =>  a * 2;
+
+const calc3 = (a, b) => { 
+	return a + b; 
+};

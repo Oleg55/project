@@ -601,3 +601,99 @@ start();
 
 
 	console.log(personalMovieDB);
+
+	//CALLBACK функции
+
+	function first() {
+		// do some
+		setTimeout(function() {
+			console.log(1);
+		},500);
+	}
+
+	function second() {
+		console.log(2);
+	}
+
+	first();
+	second();
+	
+function lernJS(lang, callback) {
+	console.log(`Я учу: ${lang}`);
+	callback();
+}
+
+function done() {
+	console.log('Я прошел этот урок');
+}
+
+lernJS('Js', done);
+
+//ОБЬЕКТЫ 
+
+const option = {
+	name: 'test',
+	width: 1024,
+	height: 1024,
+	colors: {
+		border: 'black',
+		bg: 'red'
+	}
+};
+
+//доступ к значению по ключю обьекта в нутри обьекта
+console.log(option.colors.border);
+//или так 
+console.log(option["colors"]["border"]);
+
+console.log(option.name);
+
+//delete option.name; // удаление из обьекта по ключу
+
+console.log(option);
+
+//Длину обьекта можно узнать через переменную counter
+//если только на первом уровне то удалить counter ++ из вложенного for
+let counter = 0;
+
+for (let key in option) {
+	//доступ к свойствам обьекта в нутри обьекта в цикле с условием и в цикле
+	if (typeof(option[key]) === 'object') {
+		for (let i in option[key]) {
+			console.log(`Свойство ${i} имеет значение ${option[key][i]}`);
+			counter++; // вот тут удаляем и считает толко первый уровень
+		}
+	} else {
+		console.log(`Свойство ${key} имеет значение ${option[key]}`);
+		counter++;
+	}
+	
+}
+
+console.log(counter);
+
+// методы у обьекта
+//так проще и лучше узнать длину обьекта
+const option2 = {
+	name: 'test',
+	width: 1024,
+	height: 1024,
+	colors: {
+		border: 'black',
+		bg: 'red'
+	},
+	makeTest: function() { // это мы создали метод у обьекта 
+		console.log("test");
+	}
+};
+// Object.keys(option2) - все ключи(1го уровня) в масив ключей
+console.log(Object.keys(option2).length);
+//вызов метода у обьекта
+option2.makeTest();
+//деструктуризация обьекта для нормального доступа,
+//а не вот так console.log(option["colors"]["border"]);
+//вот такой вариант вытаскивания
+const {border,bg} = option2.colors;
+console.log(border);
+console.log(bg);
+console.log(border,bg);
